@@ -52,18 +52,23 @@ app.get("/", (req, res) => {
       const {name, email}= req.query;
       console.log(name);
       const employee= await Employee.findOne({email:email});
+      if(!employee){
+        return res.status(422).json({error:"Employee Not found"});
+      }
       res.send(employee);
 
   })
-app.post("/edit",async(req,res)=>{
-    const{name,email}=req.query;
-    const result=await Employee.findOneAndUpdate({name:name, email:email});
+app.put("/edit",async(req,res)=>{
+    const{name,email,salary,desig}=req.query;
+    const result=await Employee.findOneAndUpdate({email:email},{name:name,email:email,salary:salary,desig:desig});
+    res.status(201).json({message:"Done"})
 })
-  app.post(
+  app.delete(
     "/delete",
    async (req, res) => {
        const{name, email}=req.query;
       const result = await Employee.findOneAndDelete({email:email});
+      res.status(201).json({message:"Done"})
     }
   );
 
