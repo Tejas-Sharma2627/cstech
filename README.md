@@ -1,7 +1,7 @@
 # Form CRUD 
 
 This project is made by Tejas Sharma<br>
-Backend : https://github.com/Tejas-Sharma2627/cstech-backend
+Frontend : https://github.com/Tejas-Sharma2627/cstech-frontend
 
 ## Stack Used
 
